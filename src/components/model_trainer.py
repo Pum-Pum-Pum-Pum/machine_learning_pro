@@ -2,7 +2,7 @@ import os
 import sys
 from dataclasses import dataclass
 
-from catboost import CatBoostRegressor
+
 from sklearn.ensemble import (
     RandomForestRegressor,
     GradientBoostingRegressor,
@@ -47,7 +47,7 @@ class ModelTrainer:
                 "Linear Regression": LinearRegression(),
                 "K-nearest Neighbour Regressor": KNeighborsRegressor(),
                 "XGRegressor": XGBRFRegressor(),
-                "CatBoosting Regressor":CatBoostRegressor(),
+                #"CatBoosting Regressor":CatBoostRegressor(),
                 "Adaboost regressor": AdaBoostRegressor()
             }
             
@@ -65,7 +65,7 @@ class ModelTrainer:
             if best_model_score < 0.6:
                 raise CustomException("All models are not good enough")
             else:
-                logging.info("Best model found")
+                logging.info(f"Best model found {best_model}")
             
             save_object(
                 file_path=self.model_trainer_config.trained_model_file_path,
@@ -74,8 +74,8 @@ class ModelTrainer:
             
             predicted=best_model.predict(X_test)
             
-            r2_score = r2_score(y_test, predicted)
-            return r2_score
+            r2_score_value = r2_score(y_test, predicted)
+            return r2_score_value
         
         except Exception as e:
             CustomException(e, sys)    

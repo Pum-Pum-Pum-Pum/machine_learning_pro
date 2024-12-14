@@ -4,6 +4,7 @@ seaborn
 matplotlib
 ipykernel
 scikit-learn
+xgboost
 catboost
 xgboost
 dataclasses

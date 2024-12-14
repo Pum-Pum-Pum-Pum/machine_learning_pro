@@ -1,4 +1,7 @@
 import sys
+import os
+
+# Add the parent directory of "src" to sys.path
 from src.logger import logging
 
 

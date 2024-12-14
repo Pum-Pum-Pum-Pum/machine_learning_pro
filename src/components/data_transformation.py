@@ -7,6 +7,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer ## This is for missing values
 from sklearn.pipeline import Pipeline
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_object
