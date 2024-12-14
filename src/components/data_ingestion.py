@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation, DataTransformationConfig
+from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -45,4 +46,10 @@ if __name__ == "__main__":
     train_data, test_data = obj.initiate_data_ingestion()
     
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data, test_data)
+    train_array, test_array = data_transformation.initiate_data_transformation(train_data, test_data)
+    
+    model_trainer = ModelTrainer()
+    r2_score=model_trainer.initiate_model_trainer(train_array, test_array)
+    logging.info(f"the best models r2 score is {r2_score}")
+    
+    
