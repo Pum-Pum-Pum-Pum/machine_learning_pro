@@ -13,4 +13,5 @@ graphviz
 plotly
 scipy
 six
+flask
 -e .
