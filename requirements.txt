@@ -9,4 +9,8 @@ catboost
 xgboost
 dataclasses
 dill
+graphviz
+plotly
+scipy
+six
 -e .
